@@ -1,0 +1,15 @@
+
+.header{
+    grid-area: headerApp;
+    background-color: rgb(196, 220, 255);
+    font-size: 35pt;
+    
+    
+  }
+  .header img {
+    width: 60px;
+    
+  }
+  .header text {
+    margin: 0 auto;
+  }

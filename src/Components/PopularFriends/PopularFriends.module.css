@@ -1,0 +1,23 @@
+.nav {
+    grid-area: navApp;
+    background-color: rgb(9, 154, 238);
+    padding: 20px;
+  }
+.item a {
+    color: white;
+    margin-left: 1pc;
+    margin-top: 1pc;
+    text-decoration: none;
+}
+
+.item a.activ{
+  color: gold;
+}
+
+.itemFriends {
+  padding: 15px;
+  color: black
+}
+.itemFriends img {
+  width: 18px;
+}

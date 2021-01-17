@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React from "react"
 import './App.css';
+import Header from './Components/Header/Header'
+import Navigation from './Components/Navigation/Navigation'
 
-function App() {
+import {Route} from 'react-router-dom'
+import News from "./Components/News/News";
+import Music from "./Components/Music/Music";
+import Settings from "./Components/Settings/Settings";
+import MessengerContainer from "./Components/Messenger/MessengerContainer";
+import UsersContainer from "./Components/Users/UsersContainer"
+import ProfileContainer from "./Components/Profile/ProfileContainer";
+
+
+
+const App = (props) => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className= 'app-wrapper'>
+      <Header/>
+      <Navigation />
+      {/* friendsData = {props.state.sideBar.populationFriends} */}
+      <div className = 'app-wrapper-content'>
+      <Route path = '/profile/:userId?' render = { () => <ProfileContainer/>}/>
+      <Route path = '/messenger' render = { () => <MessengerContainer/>}/> 
+      <Route path = '/users' render = { () => <UsersContainer/>}/>
+      <Route path = '/news' render = { () => <News/>}/>
+      <Route path = '/music' render = { () => <Music/>}/>
+      <Route path = '/settings' render = { () => <Settings/>}/> 
+      </div>
     </div>
-  );
-}
+  )}
+
 
 export default App;
