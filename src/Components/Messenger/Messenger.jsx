@@ -2,6 +2,9 @@ import React from 'react'
 import classes from './Messenger.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
+import { Field, reduxForm } from 'redux-form'
+import {required, maxLenghtCreator} from './../../utils/validators/validators'
+import {Textarea} from './../Common/FormsControl/FormsControl'
 
 
 
@@ -11,16 +14,14 @@ const Messenger = (props) => {
 
     let DialogElements = state.dialogData.map (d => <DialogItem name = {d.name} id = {d.id}/>)
     let MassagesElements = state.messagesData.map (m => <Message message= {m.message}/>)
-    let newMessageBody = state.newMessageBody
 
-    let onSendMessageClick = () => {
-        props.sendMessage()
+
+    let addNewMessage = (values) => {
+       props.sendMessage (values.newMassageBody)
     }
-    let onNewMessageChange = (event ) => {
-        let body = event.target.value
-        props.updateNewMessageBody(body)
 
-    } 
+    // if(!props.isAuth) return <Redirect to = {'/login'}/>
+
     return (
         <div className ={classes.dialogs}>
 
@@ -31,19 +32,36 @@ const Messenger = (props) => {
                 <div>
                 {MassagesElements}
                 </div>
-                <div>
-                <textarea onChange = {onNewMessageChange} value = {newMessageBody} placeholder ='Enter your message'></textarea>
-                </div>
-                
-        <div>
-            <button onClick = {onSendMessageClick}>Send</button>
             </div>
-            </div>
+            <AddMessageFormRedux onSubmit = {addNewMessage}/>
         </div>
 
 
     )
 
 }
+// Validation paramerters
+const maxLenght50 =maxLenghtCreator(50)
+
+// Data collection and submit to the handleSubmit
+
+const AddMessageForm = (props) => {
+    return (
+    <form onSubmit = {props.handleSubmit}>
+        <div>
+    <Field placeholder = {'Enter your message'} name ={'newMassageBody'} component ={Textarea} validate={[required, maxLenght50]} />
+    </div>
+    <div>
+        <button >Send</button>
+            </div>
+    </form>
+)}
+
+
+// Redux Form
+const AddMessageFormRedux = reduxForm({
+    // a unique name for the form
+    form: 'dialogAddMessageForm'
+  })(AddMessageForm)
 
 export default Messenger;

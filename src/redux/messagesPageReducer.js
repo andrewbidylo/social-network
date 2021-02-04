@@ -19,25 +19,19 @@ let initialState = {
         {id: '4', message: "I can't"},
         {id: '5', message: 'lol'},
       ],
-    newMessageBody: ''
+
 }
 
 const messagesPageReducer = (state = initialState, action) => {
 
  
     switch (action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-        return {
-            ...state,
-            newMessageBody: action.body
-        }
-    
+
         case (SEND_MESSAGE):
         
-            let body = state.newMessageBody
+            let body = action.newMessageBody
             return {
                 ...state,
-                newMessageBody: '',
                 messagesData: [...state.messagesData, {id: 7, message: body}]
             }
         default:
@@ -47,8 +41,10 @@ const messagesPageReducer = (state = initialState, action) => {
 
 }
 
-export const sendMessageCreator = () => {
-    return { type: SEND_MESSAGE
+// Action creators
+
+export const sendMessageCreator = (newMessageBody) => {
+    return { type: SEND_MESSAGE, newMessageBody
     }
 }
 

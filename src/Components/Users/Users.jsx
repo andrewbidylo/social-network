@@ -3,6 +3,7 @@ import styles from './Users.module.css'
 import photoDefault from './../../../src/accets/imeges/userDefault.png'
 import { NavLink } from 'react-router-dom'
 
+
 let Users = (props) => {
    
     let pagesCount = Math.ceil (props.totalCount/props.pageSize)
@@ -20,6 +21,9 @@ let Users = (props) => {
             {
             props.users.map ( u => <div key = {u.id}>
                 <span>
+                <div>   
+                {u.name}
+            </div>
                 <div >
                     <NavLink to ={'/profile/'+ u.id}>
                 <img src = {u.photos.small !=null ? u.photos.small: photoDefault} className = {styles.userPhoto} alt = 'userPhoto'/>
@@ -27,8 +31,15 @@ let Users = (props) => {
                 </div>
                 <div>
                     {u.followed 
-                    ? <button onClick = {() => {props.unfollow(u.id)}}> Unfollow</button> 
-                    : <button onClick = {() => {props.follow(u.id)}}> Follow</button>}
+                    ? <button disabled = {props.followingInProgress.some (id => id === u.id)} onClick = {() => {
+                        props.unfollow(u.id)
+                    }}
+                        > Unfollow</button> 
+                    : <button disabled = {props.followingInProgress.some (id => id === u.id)} onClick = {() =>{ 
+                            props.follow(u.id)
+                            }}
+                            > Follow</button>
+                            }
                 </div>
                 </span> 
                 <span>
@@ -36,9 +47,7 @@ let Users = (props) => {
                 <div></div>
                 </span>
                 <span>
-            <div>   
-                {u.name}
-            </div>
+
             <div>
                 {u.status}
             </div> 

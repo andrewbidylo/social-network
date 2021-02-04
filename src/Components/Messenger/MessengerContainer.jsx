@@ -1,25 +1,27 @@
 import Messenger from './Messenger'
-import { sendMessageCreator,updateNewMessageBodyCreator } from '../../redux/messagesPageReducer'
+import { sendMessageCreator} from '../../redux/messagesPageReducer'
 import { connect } from 'react-redux'
+import {withAuthRedirect} from './../Hoc/withAuthRedirect'
+import { compose } from 'redux'
 
 
 let mapStateToProps = (state) => {
 return {
-    messagesPage: state.messagesPage
+    messagesPage: state.messagesPage,
+
 
 }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewMessageBody: (body) => 
-        {dispatch(updateNewMessageBodyCreator(body))},
 
-        sendMessage: () =>  
-        {dispatch (sendMessageCreator())}
+        sendMessage: (newMassageBody) =>  
+        {dispatch (sendMessageCreator(newMassageBody))}
     }
     }
 
-let MessengerConteiner = connect (mapStateToProps, mapDispatchToProps) (Messenger)
-
-export default MessengerConteiner;
+export default compose (
+    connect (mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+    )(Messenger)

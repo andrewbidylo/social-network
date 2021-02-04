@@ -13,3 +13,9 @@
   .header text {
     margin: 0 auto;
   }
+
+  .loginBlock {
+    float: right; 
+    font-size: 10pt;
+
+  }
