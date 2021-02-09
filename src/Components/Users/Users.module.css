@@ -1,8 +1,7 @@
-.userPhoto{
-width: 70px;
-height: 70px
-
+.userPhoto {
+  width: 70px;
+  height: 70px;
 }
 .selectedPage {
-    font-weight: bold;
+  font-weight: bold;
 }

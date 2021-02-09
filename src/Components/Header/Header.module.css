@@ -1,21 +1,16 @@
+.header {
+  grid-area: headerApp;
+  background-color: rgb(196, 220, 255);
+  font-size: 35pt;
+}
+.header img {
+  width: 60px;
+}
+.header text {
+  margin: 0 auto;
+}
 
-.header{
-    grid-area: headerApp;
-    background-color: rgb(196, 220, 255);
-    font-size: 35pt;
-    
-    
-  }
-  .header img {
-    width: 60px;
-    
-  }
-  .header text {
-    margin: 0 auto;
-  }
-
-  .loginBlock {
-    float: right; 
-    font-size: 10pt;
-
-  }
+.loginBlock {
+  float: right;
+  font-size: 10pt;
+}

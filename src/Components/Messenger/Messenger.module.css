@@ -2,22 +2,9 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
   padding: 20px;
-
-
 }
 .dialogsItems .activ {
-  color: gold
-  
-
-}
-
-.messeges{
-  
-
-}
-.messege{
-  
-
+  color: gold;
 }
 
 .item img {
@@ -27,5 +14,4 @@
 .item a {
   color: black;
   text-decoration: none;
-
 }

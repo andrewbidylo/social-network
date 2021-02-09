@@ -1,39 +1,39 @@
 import { getAuthUserData } from '../redux/auth'
-const INITIALIZED_SUCCSESS = 'INITIALIZED_SUCCSESS'
+const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
 
 
 let initialState = {
-        inishialized: false,
+    inishialized: false,
 
 }
 
 
 const appReducer = (state = initialState, action) => {
-    
 
-    switch (action.type){
 
-    case INITIALIZED_SUCCSESS:
-        return {...state, inishialized: true}
-    
-    default:
-        return state
+    switch (action.type) {
+
+        case INITIALIZED_SUCCESS:
+            return { ...state, inishialized: true }
+
+        default:
+            return state
     }
 }
 
 // Action creator
-export const inishializedSuccsess= () => {
-    return { type: INITIALIZED_SUCCSESS}
+export const inishializedSuccess = () => {
+    return { type: INITIALIZED_SUCCESS }
 }
 
 // Thank creators //
-export const initializeApp = () => (dispatch) => { 
-    let promis = dispatch (getAuthUserData())
-    Promise.all([promis])
-    .then (() => {
-        dispatch (inishializedSuccsess())
-    })
-    
+export const initializeApp = () => (dispatch) => {
+    let promise = dispatch(getAuthUserData())
+    Promise.all([promise])
+        .then(() => {
+            dispatch(inishializedSuccess())
+        })
+
 }
 
 export default appReducer;

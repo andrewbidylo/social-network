@@ -1,7 +1,6 @@
 .item {
-  color: green
+  color: green;
 }
-  .item img {
-    width: 30px;
-  }
-
+.item img {
+  width: 30px;
+}

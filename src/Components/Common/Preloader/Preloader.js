@@ -3,7 +3,7 @@ import preloader from './../../../accets/imeges/preloader.svg'
 
 let Preloader = (props) => {
     return (
-        <img alt = 'preloader 'src ={preloader}/>
+        <img alt='preloader' src={preloader} />
     )
 }
 
