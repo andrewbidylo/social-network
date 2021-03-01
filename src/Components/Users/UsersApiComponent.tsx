@@ -1,15 +1,37 @@
 import React from 'react'
 import Users from './Users'
-import Preloader from './../Common/Preloader/Preloader'
+import Preloader from '../Common/Preloader/Preloader'
+import { UsersType } from '../../types/types'
 
 
-class UsersApiComponent extends React.Component {
+export type MapDispatchToPropsType = {
+    getUsers: (pageNumber: number, pageSize: number) => void 
+    unfollow:  (userId:number) => void
+    follow: (userId:number) => void
+    
+}
+
+
+export type MapStateToPropsType = {
+    currentPage: number
+    pageSize: number
+    isFetching: boolean
+    totalCount: number
+    users: Array<UsersType>
+    followingInProgress: Array <number>
+}
+export type OwnProps = {
+
+}
+type PropsType = MapDispatchToPropsType & MapStateToPropsType & OwnProps
+
+class UsersApiComponent extends React.Component <PropsType> {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize)
     }
 
-    onPageChanged = (pageNumber) => {
+    onPageChanged = (pageNumber: number) => {
         this.props.getUsers(pageNumber, this.props.pageSize)
     }
 

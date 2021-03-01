@@ -4,13 +4,14 @@ import classes from './MyPosts.module.css'
 import Post from './Post/Post'
 import { required, maxLenghtCreator } from './../../../utils/validators/validators'
 import { Textarea } from './../../Common/FormsControl/FormsControl'
+import { Button } from "@material-ui/core";
 
 
 const MyPosts = (props) => {
     let postsElements =
         [...props.postData]
             .reverse()
-            .map(p => <Post message={p.message} likesCount={p.likesCount} />)
+            .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
 
 
     let addPost = (values) => {
