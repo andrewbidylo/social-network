@@ -1,23 +1,21 @@
 import { getAuthUserData } from './auth'
-const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS'
+import { InferActionsTypes } from './redaxStore'
 
-export type InitialStateType = {
-    inishialized: boolean
 
-}
+type InitialStateType = typeof initialState
 
-let initialState: InitialStateType = {
+let initialState = {
     inishialized: false,
-
 }
 
+type ActionsType = InferActionsTypes<typeof actions>
 
-const appReducer = (state = initialState, action: any): InitialStateType => {
+const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
 
 
     switch (action.type) {
 
-        case INITIALIZED_SUCCESS:
+        case 'SN/APP/INITIALIZED_SUCCESS':
             return { ...state, inishialized: true }
 
         default:
@@ -25,21 +23,19 @@ const appReducer = (state = initialState, action: any): InitialStateType => {
     }
 }
 
-type InishializedSuccessActionType = {
-    type: typeof INITIALIZED_SUCCESS
-}
 
-// Action creator
-export const inishializedSuccess = (): InishializedSuccessActionType => {
-    return { type: INITIALIZED_SUCCESS }
+export const actions = {
+    inishializedSuccess: () => ({ type: 'SN/APP/INITIALIZED_SUCCESS' } as const)
 }
+// Action creator
+
 
 // Thank creators //
 export const initializeApp = () => (dispatch: any) => {
     let promise = dispatch(getAuthUserData())
     Promise.all([promise])
         .then(() => {
-            dispatch(inishializedSuccess())
+            dispatch(actions.inishializedSuccess())
         })
 
 }

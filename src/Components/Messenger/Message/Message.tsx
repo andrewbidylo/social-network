@@ -1,8 +1,9 @@
-import React from 'react'
 import classes from './../Messenger.module.css'
 
-
-const Message = (props) => {
+type MessageType ={
+    message: string
+}
+const Message: React.FC <MessageType> = (props) => {
     return (
         <div className={classes.messege}>
             {props.message}

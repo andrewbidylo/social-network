@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter, Redirect, Switch, withRouter } from 'react-router-dom'
 import { Provider } from 'react-redux';
-import store from './redux/redaxStore';
+import store, { AppStateType } from './redux/redaxStore';
 import './App.css';
 import Navigation from './Components/Navigation/Navigation'
 import { Route } from 'react-router-dom'
@@ -20,7 +20,10 @@ import { compose } from "redux";
 
 const MessengerContainer = React.lazy(() => import('./Components/Messenger/MessengerContainer'));
 
-class App extends React.Component {
+type MapStatePropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = { initializeApp: () => void }
+
+class App extends React.Component<MapStatePropsType & DispatchPropsType> {
   componentDidMount() {
     this.props.initializeApp()
   }
@@ -32,10 +35,9 @@ class App extends React.Component {
       <div className='app-wrapper'>
         <HeaderContainer />
         <Navigation />
-        
-          <div className='app-wrapper-content'>
+        <div className='app-wrapper-content'>
           <Switch>
-          <Route exact path='/' render={() => <Redirect to = {'./profile'}/>} />
+            <Route exact path='/' render={() => <Redirect to={'./profile'} />} />
             <Route path='/profile/:userId?' render={() => <React.Suspense fallback={<Preloader />}>
               <div>
                 <ProfileContainer />
@@ -53,20 +55,20 @@ class App extends React.Component {
             <Route path='/settings' render={() => <Settings />} />
             <Route path='/login' render={() => <Login />} />
             <Route path='*' render={() => <div> ERROR 404 </div>} />
-            </Switch>
-          </div>
+          </Switch>
+        </div>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   inishialized: state.app.inishialized
 })
 
-let AppContainer = compose(withRouter, connect(mapStateToProps, { initializeApp }))(App)
+let AppContainer = compose <React.ComponentType>(withRouter, connect(mapStateToProps, { initializeApp }))(App)
 
-const SocialNetworkApp = (props) => {
+const SocialNetworkApp: React.FC = () => {
   return <BrowserRouter>
     <Provider store={store}>
       <React.StrictMode>

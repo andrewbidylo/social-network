@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form'
 import { FieldValidatorsType } from '../../../utils/validators/validators'
+import { LoginFormValueType } from '../../Login/Login'
 import styles from './FormsControl.module.css'
 
 
@@ -10,10 +11,11 @@ type FormControlPropsType = {
     meta: WrappedFieldMetaProps
     children: React.ReactNode
 }
+export type LoginFormValueTypeKeys = keyof LoginFormValueType
 
 export const FormControl: React.FC<FormControlPropsType> = ({ meta: { touched, error }, children }) => {
     const hasError = touched && error
-    return (
+    return ( 
         <div className={(hasError ? styles.formControl : '')}>
             <div>
                 {children}
@@ -37,7 +39,6 @@ export const Input: React.FC<WrappedFieldProps> = (props) => {
     return <FormControl {...props}> <input {...input} {...restProps} /> </FormControl>
 }
 
-
 export function CreateField <FormsKeysType extends string> (placeholder: string | undefined, 
     name: FormsKeysType, validators: Array<FieldValidatorsType>,
     component: React.FC<WrappedFieldProps>, props = {}, text = ''){
@@ -50,3 +51,5 @@ export function CreateField <FormsKeysType extends string> (placeholder: string 
         /> {text}
     </div> 
     }
+
+    export type GetStringKeysType <T> = Extract <keyof T, string>

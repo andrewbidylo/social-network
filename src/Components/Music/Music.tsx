@@ -1,13 +1,16 @@
 import React from 'react'
 
 
-const Settings = (props) => {
+
+const Music = () => {
     return (
         <div>
-            Settings
+            Music
         </div>
+
+
     )
 
 }
 
-export default Settings;
+export default Music;

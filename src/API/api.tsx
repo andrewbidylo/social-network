@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ProfileType, UsersType } from '../types/types'
+import { UsersType } from '../types/types'
 
 
 export const instance = axios.create({
@@ -11,20 +11,20 @@ export const instance = axios.create({
 export enum ResultCodeEnum {
     Success = 0,
     Error = 1,
-    
+
 }
 export enum ResultCodeEnumForCaptcha {
     CaptchaIsRequired = 10
 }
 
 export type GetItemsType = {
-    items: Array <UsersType>
+    items: Array<UsersType>
     totalCount: number
     error: string | null
 }
 
 
-export type ResponceType <D = {}, RC = ResultCodeEnum> = {
+export type ApiResponseType<D = {}, RC = ResultCodeEnum> = {
     resultCode: RC
     messages: Array<string>
     data: D

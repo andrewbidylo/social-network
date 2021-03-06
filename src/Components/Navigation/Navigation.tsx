@@ -1,12 +1,12 @@
 import React from "react"
 import classes from './Navigation.module.css'
 import { NavLink } from "react-router-dom";
+import { type } from "os";
 
+type NavigationPropsType = {
+}
 
-
-
-
-const Navigation = (props) => {
+const Navigation: React.FC <NavigationPropsType> = (props) => {
 
   return (<nav className={classes.nav}>
     <div className={classes.item}>

@@ -2,7 +2,12 @@ import React from 'react'
 import classes from './../Messenger.module.css'
 import { NavLink } from "react-router-dom";
 
-const DialogItem = (props) => {
+type DialogItemPropsType = {
+    id: number
+    name: string
+}
+
+const DialogItem: React.FC <DialogItemPropsType> = (props) => {
     return (
         <div>
 

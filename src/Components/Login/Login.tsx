@@ -2,7 +2,7 @@
 import React from 'react'
 import { Field, InjectedFormProps, reduxForm } from 'redux-form'
 import { required, maxLenghtCreator } from '../../utils/validators/validators'
-import {CreateField,  Input } from '../Common/FormsControl/FormsControl'
+import { CreateField, Input } from '../Common/FormsControl/FormsControl'
 import { connect } from 'react-redux'
 import { login } from '../../redux/auth'
 import { Redirect } from 'react-router-dom'
@@ -12,11 +12,11 @@ import { AppStateType } from '../../redux/redaxStore'
 
 const maxLenght40 = maxLenghtCreator(40)
 
-type LoginFormOwnProps= {
-    captchaUrl:string | null
+type LoginFormOwnProps = {
+    captchaUrl: string | null
 }
 
-const LoginForm: React.FC <InjectedFormProps<LoginFormValueType, LoginFormOwnProps> & LoginFormOwnProps> = ({ handleSubmit, error, captchaUrl}) => {
+const LoginForm: React.FC<InjectedFormProps<LoginFormValueType, LoginFormOwnProps> & LoginFormOwnProps> = ({ handleSubmit, error, captchaUrl }) => {
     return (
         //e.preventDefault, get all data and put them to an object, props.onSubmit(formData)
         <form onSubmit={handleSubmit}>
@@ -32,9 +32,9 @@ const LoginForm: React.FC <InjectedFormProps<LoginFormValueType, LoginFormOwnPro
                 <Field component={'input'} name={'rememberMe'}
                     type={'checkbox'} /> remember me
             </div>
-        {captchaUrl && <img src = {captchaUrl} alt=''/>}
-        {captchaUrl && CreateField('Symbols from image', 'captcha', [required], Input)}
-        
+            {captchaUrl && <img src={captchaUrl} alt='' />}
+            {captchaUrl && CreateField('Symbols from image', 'captcha', [required], Input)}
+
             {error && <div className={styles.formSummaryError}>
                 {error}
             </div>
@@ -48,27 +48,27 @@ const LoginForm: React.FC <InjectedFormProps<LoginFormValueType, LoginFormOwnPro
     )
 }
 
-const LoginReduxForm = reduxForm<LoginFormValueType,LoginFormOwnProps>({
+const LoginReduxForm = reduxForm<LoginFormValueType, LoginFormOwnProps>({
     // a unique name for the form
     form: 'login'
 })(LoginForm)
 
 
-type MapDispatchToPropsType= {
+type MapDispatchToPropsType = {
     login: (email: string, password: string, rememberMe: boolean, captcha: string) => void
-   
+
 }
 
-type LoginFormValueType = {
+export type LoginFormValueType = {
     email: string
     password: string
     rememberMe: boolean
     captcha: string
 
 }
-type LoginFormValueTypeKets =  Extract <keyof LoginFormValueType, string>
+//  
 
-const Login: React.FC <MapStateToPropsType & MapDispatchToPropsType> = (props) => {
+const Login: React.FC<MapStateToPropsType & MapDispatchToPropsType> = (props) => {
     const onSubmit = (formData: LoginFormValueType) => {
         // HOC Connect return Callback function and we call this function
         props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
@@ -86,7 +86,7 @@ const Login: React.FC <MapStateToPropsType & MapDispatchToPropsType> = (props) =
     )
 }
 
-type MapStateToPropsType= {
+type MapStateToPropsType = {
     isAuth: boolean
     captchaUrl: string | null
 }
