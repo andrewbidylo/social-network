@@ -1,10 +1,11 @@
 import React from "react"
-import { Field, InjectedFormProps, reduxForm } from "redux-form";
+import { InjectedFormProps, reduxForm } from "redux-form";
 import classes from './MyPosts.module.css'
 import Post from './Post/Post'
 import { required, maxLenghtCreator } from '../../../utils/validators/validators'
 import { CreateField, Textarea } from '../../Common/FormsControl/FormsControl'
 import { PostDataType } from "../../../types/types";
+import { Button } from "@material-ui/core";
 
 export type AddPostFormValueType = {
     newPostText: string
@@ -59,7 +60,7 @@ const AddNewForm: React.FC <InjectedFormProps <AddPostFormValueType, AddNewFormO
              {CreateField <AddPostFormKeysType>('Enter your message','newPostText',[required, maxLenght10],Textarea) }
 
             <div>
-                <button>Add post</button>
+                <Button color ='primary' >Add post</Button>
             </div>
         </form>
 

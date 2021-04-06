@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, WrappedFieldMetaProps, WrappedFieldProps } from 'redux-form'
 import { FieldValidatorsType } from '../../../utils/validators/validators'
-import { LoginFormValueType } from '../../Login/Login'
+import { LoginFormValueType } from '../../Login/LoginForm'
 import styles from './FormsControl.module.css'
 
 

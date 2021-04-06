@@ -30,7 +30,7 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 
 type ActionsType = InferActionsTypes<typeof actions>
 
-// Action creators
+// Action creators / Retern actions
 const actions = {
     setAuthUserData: (userId: number | null, email: string | null, login: string | null, isAuth: boolean) => ({
         type: 'SN/AUTH/SET_USER_DATA', payload: { userId, email, login, isAuth }

@@ -35,7 +35,7 @@ const profilePageReducer = (state = initialState, action: ActionsType): InitialS
             return { ...state, postData: [...state.postData, newPost], newPostText: '' }
 
         case 'SN/PP/DELETE_POST':
-            return { ...state, postData: state.postData.filter(p => p.id != action.postId) }
+            return { ...state, postData: state.postData.filter(p => p.id !== action.postId) }
 
         case 'SN/PP/SET_USER_PROFILE':
             return { ...state, profile: action.profile }

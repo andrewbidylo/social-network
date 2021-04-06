@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import classes from './Header.module.css'
 import { NavLink } from 'react-router-dom'
-
+import { Button } from '@material-ui/core'
 export type MapHeaderPropsType = {
     isAuth: boolean
     login: string | null
@@ -16,11 +16,10 @@ const Header: React.FC <MapHeaderPropsType & DispatchHeaderPropsType> = (props) 
 
         <div className={classes.loginBlock}>
             {props.isAuth
-                ? <div>{props.login} <button onClick={props.logout}> Logout</button></div>
+                ? <div>{props.login} <Button color ='primary' onClick={props.logout}> Logout</Button></div>
                 : <NavLink to={'/login'}> Login </NavLink>
             }
         </div>
-
     </header>
     )
 };

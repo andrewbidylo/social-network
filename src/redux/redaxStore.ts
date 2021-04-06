@@ -8,6 +8,7 @@ import thunkMiddleware from "redux-thunk"
 import { reducer as formReducer } from 'redux-form'
 import appReducer from "./appReducer"
 import { ThunkAction } from 'redux-thunk'
+import chatReducer from "./chatReducer"
 
 let rootReducer = combineReducers({
     profilePage: profilePageReducer,
@@ -16,7 +17,10 @@ let rootReducer = combineReducers({
     sidbar: sidebarReducer,
     auth: authReducer,
     form: formReducer,
-    app: appReducer
+    app: appReducer,
+    chat: chatReducer,
+    
+
 })
 
 export type BaseThunkType < A extends Action, R = Promise <void>> = ThunkAction <R, AppStateType, unknown, A>

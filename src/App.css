@@ -3,7 +3,7 @@
   grid-template-areas:
   "headerApp headerApp"
   "navApp contentApp";
-   grid-template-rows: 60px 1fr;
+   grid-template-rows: 60px 1fr 40px;
     grid-template-columns: 2fr 10fr;
     grid-gap: 10px;
 

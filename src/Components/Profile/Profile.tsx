@@ -2,7 +2,6 @@ import React from 'react'
 import { ProfileType } from '../../types/types'
 import MyPostsConteiner from './MyPosts/MyPostsContainer'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import {PropsTypeProfile} from './ProfileInfo/ProfileInfo'
 
 
 type ProfilePropsType = {

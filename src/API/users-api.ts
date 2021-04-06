@@ -1,10 +1,11 @@
 import { ApiResponseType, GetItemsType, instance } from './api'
 
-export const    usersAPI = {
-    getUsers(currentPage: number, pageSize: number) {
-        return (instance.get <GetItemsType>(`users?page=${currentPage} & count = ${pageSize}`)
+export const usersAPI = {
+    getUsers(currentPage: number, pageSize: number, term: string = '', friend: null | boolean = null) {
+        return instance.get<GetItemsType>(`users?page=${currentPage}&count=${pageSize}&term=${term}`+(friend === null?'':`&friend=${friend}`))
 
-        )
+
+
             .then(response => response.data)
     },
 
@@ -14,7 +15,7 @@ export const    usersAPI = {
     },
 
     unfollow(userId: number) {
-        return instance.delete(`follow/${userId}`).then(res => res.data) as Promise <ApiResponseType>
+        return instance.delete(`follow/${userId}`).then(res => res.data) as Promise<ApiResponseType>
 
     },
 }

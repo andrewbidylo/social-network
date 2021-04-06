@@ -23,7 +23,6 @@ const Messenger: React.FC< PropsType> = (props) => {
 
     let state = props.messagesPage
 
-    let DialogElements = state.dialogData.map(d => <DialogItem name={d.name} id={d.id} />)
     let MassagesElements = state.messagesData.map(m => <Message message={m.message} />)
 
 
@@ -34,9 +33,7 @@ const Messenger: React.FC< PropsType> = (props) => {
     return (
         <div className={classes.dialogs}>
 
-            <div className={classes.dialogsItems}>
-                {DialogElements}
-            </div>
+
             <div className={classes.messeges}>
                 <div>
                     {MassagesElements}
