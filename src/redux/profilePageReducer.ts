@@ -10,8 +10,7 @@ let initialState = {
         { id: 1, message: 'Hi, how are you?', likesCount: 10 },
         { id: 2, message: 'What are you doing?', likesCount: 2 },
         { id: 3, message: 'Lol', likesCount: 3 },
-        { id: 3, message: 'Lol', likesCount: 3 },
-        { id: 3, message: 'Lol', likesCount: 3 },
+
     ] as Array<PostDataType>,
     profile: null as ProfileType | null,
     status: '',

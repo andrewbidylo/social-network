@@ -1,16 +1,20 @@
 .header {
   grid-area: headerApp;
-  background-color: rgb(196, 220, 255);
+  background-color: rgb(9, 154, 238);
   font-size: 35pt;
 }
 .header img {
   width: 60px;
+  padding-left: 34px;
 }
 .header text {
   margin: 0 auto;
+  
 }
 
 .loginBlock {
   float: right;
   font-size: 10pt;
+  padding-top: 10px;
+  color: rgb(255, 255, 255);
 }

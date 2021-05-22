@@ -5,6 +5,9 @@ import classes from './ProfileInfo.module.css'
 import styles from '../../Common/FormsControl/FormsControl.module.css'
 import { ProfileType } from "../../../types/types"
 import {GetStringKeysType} from './../../Common/FormsControl/FormsControl'
+import { Button } from "@material-ui/core";
+import UseStyle from './ProfileStyle'
+
 
 type PropsType = {
     profile: ProfileType
@@ -12,10 +15,14 @@ type PropsType = {
 }
 
 let ProfileDataForm: React.FC<InjectedFormProps <ProfileType, PropsType> & PropsType> = ({profile, handleSubmit, error}) => {
-    
+
+    const classesMU:any = UseStyle()
+
     return <form onSubmit={handleSubmit}>
     
-        <div><button>Save</button></div>
+        <div>
+            <Button variant="contained" className = {classesMU.button} onClick = {handleSubmit} >Save</Button>
+            </div>
         {error && <div className={styles.formSummaryError}>
                 {error}
             </div>}

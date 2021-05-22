@@ -6,6 +6,8 @@ import { required, maxLenghtCreator } from '../../../utils/validators/validators
 import { CreateField, Textarea } from '../../Common/FormsControl/FormsControl'
 import { PostDataType } from "../../../types/types";
 import { Button } from "@material-ui/core";
+import UseStyle from '.././ProfileInfo/ProfileStyle'
+
 
 export type AddPostFormValueType = {
     newPostText: string
@@ -55,12 +57,14 @@ type AddNewFormOwnPropsType = {
 
 const maxLenght10 = maxLenghtCreator(10)
 const AddNewForm: React.FC <InjectedFormProps <AddPostFormValueType, AddNewFormOwnPropsType> & AddNewFormOwnPropsType> = (props) => {
+    const classesMU:any = UseStyle()
+
     return (
         <form onSubmit={props.handleSubmit}>
              {CreateField <AddPostFormKeysType>('Enter your message','newPostText',[required, maxLenght10],Textarea) }
 
             <div>
-                <Button color ='primary' >Add post</Button>
+                <Button variant="contained" className = {classesMU.button} onClick= {props.handleSubmit}>Add post</Button>
             </div>
         </form>
 

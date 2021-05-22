@@ -1,6 +1,5 @@
 import React from 'react'
 import classes from './Messenger.module.css'
-import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 import { InjectedFormProps, reduxForm } from 'redux-form'
 import { required, maxLenghtCreator } from '../../utils/validators/validators'

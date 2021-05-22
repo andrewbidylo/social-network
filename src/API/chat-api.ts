@@ -51,9 +51,9 @@ export const ChatAPI = {
     start () {
     createChannel()
     },
-    stop () {
-        subscribers ['messages-received'] = []
-        subscribers ['status-changed'] = []
+    stop () { 
+        subscribers['messages-received'] = []
+        subscribers['status-changed'] = []
         cleanUp ()
         ws?.close()
         
@@ -62,7 +62,7 @@ export const ChatAPI = {
         // @ts-ignore
         subscribers[eventName].push(callback)
         return () => {
-// @ts-ignore
+        // @ts-ignore
             subscribers[eventName] = subscribers[eventName].filter(s => s !== callback)
         }
     },

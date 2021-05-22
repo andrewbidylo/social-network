@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ChatMessageAPIType } from '../../API/chat-api'
 import { sendMessage, startMessagesListening, stopMessagesListening } from '../../redux/chatReducer'
 import { AppStateType } from '../../redux/redaxStore'
+import { Button } from "@material-ui/core";
+import UseStyle from '../../Components/Profile/ProfileInfo/ProfileStyle'
+import classes from './ChatPage.module.css'
+
 
 
 const ChatPage: React.FC <ChatPagePropsType> = () => {
@@ -22,7 +26,7 @@ const Chat: React.FC =() => {
         return ()=> {
             dispatch(stopMessagesListening())
         }
-    },[])
+    },[dispatch])
     
 
 
@@ -37,7 +41,7 @@ const Chat: React.FC =() => {
 }
 
 
-const Messages: React.FC <{}>= ({}) => {
+const Messages: React.FC <{}>= () => {
     const messages = useSelector ((state: AppStateType)=> state.chat.messages)
     const messagesAnchorRef = useRef<HTMLDivElement>(null)
     const [isAutoScroll, setIsAutoScroll] = useState (false)
@@ -56,7 +60,7 @@ const Messages: React.FC <{}>= ({}) => {
             messagesAnchorRef.current?.scrollIntoView({behavior:'smooth'})
         }
         
-    },[messages])
+    },[messages, isAutoScroll])
     return <div style= {{height:'600px', overflow:'auto'}} onScroll={scrollHeandler}>
         {messages.map((m, index)=> <Message key = {index} message = {m}/>)}
         <div ref={messagesAnchorRef}></div>
@@ -66,15 +70,13 @@ const Messages: React.FC <{}>= ({}) => {
 
 
 
-const AddMessageForm: React.FC <{}>= ({})=> {
+const AddMessageForm: React.FC <{}>= ()=> {
     // Messages sending
     const [message, setMessage] = useState('')
     const dispatch = useDispatch()
     
     const status = useSelector((state:AppStateType) => state.chat.status)
 
-
-  
 
     const sendMessageHandler = () =>{
         if (!message){
@@ -83,7 +85,7 @@ const AddMessageForm: React.FC <{}>= ({})=> {
         dispatch(sendMessage(message))
         setMessage('')
     }
-
+    const classesMU:any = UseStyle()
     return <>
          <div>
          Messages
@@ -92,18 +94,19 @@ const AddMessageForm: React.FC <{}>= ({})=> {
         <textarea onChange={(e)=> setMessage(e.currentTarget.value)} value={message}/>
     </div>
     <div>
-        <button disabled={status !== 'ready'} onClick={sendMessageHandler}>Send</button>
+        {/* Button is disabled before channel will setup */}
+        <Button variant="contained" className = {classesMU.button} disabled={status !== 'ready'} onClick={sendMessageHandler}>Send</Button>
     </div>
     </>
 }
 const Message: React.FC<{message: ChatMessageAPIType}> = React.memo( ({message}) => {
 
-    //Button is disabled before channel will setup
-    return <div>
-        <b>{message.userName}</b>
-        <div><img src={message.photo}  alt ={''} style={{height: '60px'}}/></div>
+
+    return <div >
+        <b className ={classes.userName}>{message.userName}</b>
+        <div className ={classes.userName}><img src={message.photo}  alt ={''} style={{height: '60px'}}/></div>
         <br/>
-        {message.message}
+        <div className ={classes.userName}>{message.message}</div>
         <hr/>
     </div>
 })

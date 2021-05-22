@@ -4,13 +4,12 @@
   "headerApp headerApp"
   "navApp contentApp";
    grid-template-rows: 60px 1fr 40px;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 1fr 11fr;
     grid-gap: 10px;
-
 }
 .app-wrapper-content {
     grid-area: contentApp;
-    border-color:hsl(219, 79%, 66%);
+    border-color:hsl(0, 0%, 81%);
     border-width: 1px;
     border-radius: 10px;
     border-style: outset;

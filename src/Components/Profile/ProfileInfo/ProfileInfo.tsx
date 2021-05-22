@@ -5,8 +5,9 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 import photoDefault from './../../../accets/imeges/userDefault.png'
 import ProfileDataForm from './ProfileDataForm'
 import { ContactsType, ProfileType } from "../../../types/types";
-import { makeStyles } from '@material-ui/core/styles'
 import { Button } from "@material-ui/core";
+import UseStyle from './ProfileStyle'
+
 
 export type PropsTypeProfile  = {
     profile: ProfileType | null
@@ -16,17 +17,7 @@ export type PropsTypeProfile  = {
     savePhoto: (files:File) => void
     saveProfile: (formData: ProfileType) => Promise<any>
 }
-const UseStyle = makeStyles ({
-    helloThereStyle: {
-    background: '#FE6B8B',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 24,
-    padding: '0 10px',
-    boxShadow: '',
-    }
-})
+
 
 
 
@@ -84,10 +75,11 @@ type ProfileDataPorpsType = {
 }
 let ProfileData:React.FC <ProfileDataPorpsType> = ({ profile, isOwner, goToEditMode }) => {
 
-    const classesbbb:any = UseStyle()
+    const classesMU:any = UseStyle()
     return <div>
        {isOwner && <div>
-           <Button className={classesbbb.helloThereStyle} onClick = {goToEditMode}>Edit</Button></div>}
+           <Button variant="contained" className = {classesMU.button} onClick = {goToEditMode}>Edit</Button>
+           </div>}
         <div>
             <b>Full name:</b> {profile.fullName}    
         </div>

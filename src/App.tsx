@@ -5,7 +5,6 @@ import store, { AppStateType } from './redux/redaxStore';
 import './App.css';
 import Navigation from './Components/Navigation/Navigation'
 import { Route } from 'react-router-dom'
-import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import { Users } from "./Components/Users/Users"
@@ -16,6 +15,7 @@ import { connect } from "react-redux";
 import { initializeApp } from './redux/appReducer'
 import Preloader from "./Components/Common/Preloader/Preloader";
 import { compose } from "redux";
+import WeatherPage from "./Pages/Chat/WeatherPage";
 
 
 
@@ -58,7 +58,7 @@ class App extends React.Component<MapStatePropsType & DispatchPropsType> {
                   <MessengerContainer />
                 </div>
               </React.Suspense>} />
-            <Route path='/news' render={() => <News />} />
+            <Route path='/weather' render={() => <WeatherPage />} />
             <Route path='/music' render={() => <Music />} />
 
             <Route path='/settings' render={() => <Settings />} />

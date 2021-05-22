@@ -7,3 +7,10 @@
 .contacts {
   padding-left: 10px;
 }
+.editButton {
+  background: '#80bfff';
+  border: 0;
+  color: 'white';
+  height: 24;
+  padding: '0 28px';
+}

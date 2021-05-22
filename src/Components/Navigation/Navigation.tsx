@@ -19,22 +19,11 @@ const Navigation: React.FC<NavigationPropsType> = (props) => {
       <NavLink to='/users' activeClassName={classes.activ}>Users</NavLink>
     </div>
     <div className={classes.item}>
-      <NavLink to='/todo' activeClassName={classes.activ}>Todo</NavLink >
-    </div >
-    <div className={classes.item}>
-      <NavLink to='/news' activeClassName={classes.activ}>News</NavLink >
+      <NavLink to='/weather' activeClassName={classes.activ}>Weather</NavLink >
     </div>
     <div className={classes.item}>
       <NavLink to='/music' activeClassName={classes.activ}>Music</NavLink >
     </div >
-
-    {/* <div className={classes.itemFriends}>
-     Friends
-        <img src = './logo192.png' alt="logo"/>
-        {FrendsElements.name}
-      <div/> */}
-    {/* 
-  </div> */}
   </nav>
 
 
