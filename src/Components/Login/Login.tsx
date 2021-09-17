@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom'
 import {LoginReduxForm} from './LoginForm'
 import { AppStateType } from '../../redux/redaxStore'
 import { LoginFormValueType } from './LoginForm'
+import loginStyle from './../Login/LoginStyle.module.css'
 
 
 
@@ -23,7 +24,7 @@ export const Login: React.FC = (props) => {
         return <Redirect to={'/profile'} />
     }
     return (
-        <div>
+        <div className ={loginStyle.loginForm}>
             <h1>Login</h1>
             <LoginReduxForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
         </div>

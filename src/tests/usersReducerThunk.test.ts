@@ -22,9 +22,6 @@ beforeEach(() => {
     
 })
 
-
-
-
 test('follow thunk success', async () => {
     usersAPIMock.follow.mockReturnValue(Promise.resolve(result))
     const thunk = follow(1)

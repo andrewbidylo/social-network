@@ -5,10 +5,10 @@ import { securityAPI } from '../API/securuty-api'
 import { BaseThunkType, InferActionsTypes } from './redaxStore'
 
 let initialState = {
-    userId: null as number | null,
-    email: null as string | null,
-    login: null as string | null,
-    isAuth: false as boolean,
+    userId: 13727 as number | null,
+    email: 'bidyloandrew@gmail.com' as string | null,
+    login: 'bidyloandrew@gmail.com' as string | null,
+    isAuth: true as boolean,
     captchaUrl: null as string | null // is null, then captcha is not required
 
 }

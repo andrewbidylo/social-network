@@ -59,7 +59,7 @@ export const actions = {
 }
 
 
-// Thank createros
+// Thank creators
 
 export const getUserProfile = (userId: number): ThunkType => async (dispatch) => {
     let data = await profileAPI.getProfile(userId)

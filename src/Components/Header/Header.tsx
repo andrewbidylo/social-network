@@ -20,7 +20,7 @@ const Header: React.FC <MapHeaderPropsType & DispatchHeaderPropsType> = (props) 
         <div className={classes.loginBlock}>
             {props.isAuth
                 ? <div>{props.login} <Button variant="contained" className = {classesMU.button} onClick={props.logout}> Logout</Button></div>
-                : <NavLink to={'/login'}> Login </NavLink>
+                : <NavLink to={'/login'}></NavLink>
             }
         </div>
     </header>
