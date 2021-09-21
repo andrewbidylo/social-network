@@ -5,7 +5,6 @@ import store, { AppStateType } from './redux/redaxStore';
 import './App.css';
 import Navigation from './Components/Navigation/Navigation'
 import { Route } from 'react-router-dom'
-import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import { Users } from "./Components/Users/Users"
 import ProfileContainer from "./Components/Profile/ProfileContainer";
@@ -16,6 +15,7 @@ import { initializeApp } from './redux/appReducer'
 import Preloader from "./Components/Common/Preloader/Preloader";
 import { compose } from "redux";
 import WeatherPage from "./Pages/Chat/WeatherPage";
+import {Footer} from './Footer/Footer'
 
 
 
@@ -33,11 +33,11 @@ class App extends React.Component<MapStatePropsType & DispatchPropsType> {
     if (!this.props.inishialized) {
       return <Preloader />
     }
-    return (
+    return ( <div>
       <div className='app-wrapper'>
         <HeaderContainer />
-        <Navigation />
         <div className='app-wrapper-content'>
+        <Navigation />
           <Switch>
             <Route exact path='/' render={() => <Redirect to={'./profile'} />} />
             <Route path='/profile/:userId?' render={() => <React.Suspense fallback={<Preloader />}>
@@ -59,14 +59,17 @@ class App extends React.Component<MapStatePropsType & DispatchPropsType> {
                 </div>
               </React.Suspense>} />
             <Route path='/weather' render={() => <WeatherPage />} />
-            <Route path='/music' render={() => <Music />} />
-
             <Route path='/settings' render={() => <Settings />} />
             <Route path='/login' render={() => <Login />} />
             <Route path='*' render={() => <div> ERROR 404 </div>} />
           </Switch>
         </div>
+        <div className='footer'>
+ <Footer/> 
+         </div>
       </div>
+
+         </div>
     )
   }
 }

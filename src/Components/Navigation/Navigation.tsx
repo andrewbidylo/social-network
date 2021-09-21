@@ -21,9 +21,6 @@ const Navigation: React.FC<NavigationPropsType> = (props) => {
     <div className={classes.item}>
       <NavLink to='/weather' activeClassName={classes.activ}>Weather</NavLink >
     </div>
-    <div className={classes.item}>
-      <NavLink to='/music' activeClassName={classes.activ}>Music</NavLink >
-    </div >
   </nav>
 
 

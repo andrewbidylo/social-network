@@ -1,14 +1,20 @@
 .nav {
   grid-area: navApp;
-  background-color:   rgb(9, 154, 238);
-  padding: 40px;
-  line-height: 25px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(9, 154, 238);
+  line-height: 30px;
+  border-radius: 5px;
+  height: 30px;
+ 
+  
+  
 
   
 }
 .item a {
   color: white;
-  margin-left: 0,4pc;
+  margin-left: 20px;
   margin-top: 1pc;
   text-decoration: none;
 
