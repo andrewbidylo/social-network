@@ -44,6 +44,14 @@ export const LoginForm: React.FC<InjectedFormProps<LoginFormValueType, LoginForm
             }
             <div className = {loginStyle.button} >
                 <Button variant="contained" onClick= {handleSubmit}>Log in</Button>
+
+            </div>
+
+            <div>
+                <p><b>Access Credentials:</b></p> 
+                <p>Email: bidyloandrew@gmail.com</p> 
+                <p>Password: 123</p> 
+
             </div>
         </form>
 

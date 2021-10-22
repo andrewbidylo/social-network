@@ -10,29 +10,18 @@ type PropsType = {
     messagesPage: InitialStateType
     sendMessage: (messageText:string) => void
 }
-
 type NewMassegerValuesFormType = {
     newMessageBody: string
-
 }
-
 type AddMessageFormKeysType = Extract <keyof NewMassegerValuesFormType, string>
-
 const Messenger: React.FC< PropsType> = (props) => {
-
     let state = props.messagesPage
-
     let MassagesElements = state.messagesData.map(m => <Message message={m.message} />)
-
-
     let addNewMessage = (values: NewMassegerValuesFormType) => {
         props.sendMessage(values.newMessageBody)
     }
-
     return (
         <div className={classes.dialogs}>
-
-
             <div className={classes.messeges}>
                 <div>
                     {MassagesElements}
@@ -40,12 +29,8 @@ const Messenger: React.FC< PropsType> = (props) => {
             </div>
             <AddMessageFormRedux onSubmit={addNewMessage} />
         </div>
-
-
     )
-
 }
-
 // Validation paramerters
 const maxLenght50 = maxLenghtCreator(50)
 

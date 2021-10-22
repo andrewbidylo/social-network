@@ -7,17 +7,13 @@ import { Button } from "@material-ui/core";
 import UseStyle from '../../Components/Profile/ProfileInfo/ProfileStyle'
 import classes from './ChatPage.module.css'
 
-
-
 const ChatPage: React.FC <ChatPagePropsType> = () => {
     return <div>
             <Chat />
             </div >
-
 }
 
 const Chat: React.FC =() => {
-
     const dispatch = useDispatch()
     const status = useSelector((state: AppStateType) => state.chat.status)
     
@@ -28,18 +24,14 @@ const Chat: React.FC =() => {
         }
     },[dispatch])
     
-
-
     return <div>    
         {status === 'error' && <div> Error. Please refresh the page</div>}
         <>
         <Messages/>
         <AddMessageForm/>
         </>
-    
     </div>
 }
-
 
 const Messages: React.FC <{}>= () => {
     const messages = useSelector ((state: AppStateType)=> state.chat.messages)
