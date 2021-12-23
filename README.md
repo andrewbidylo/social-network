@@ -5,10 +5,10 @@ Social Network is a large single-page app, build with TypeScript, JavaScript, Re
 
 ## Final Product
 
-!["main_page"]('https://github.com/andrewbidylo/social-network/blob/main/docs/main-page.png?raw=true')
+!["main_page"](https://github.com/andrewbidylo/social-network/blob/main/docs/main-page.png?raw=true)
 
-![chat_page"]('https://github.com/andrewbidylo/social-network/blob/main/docs/chat-page.png?raw=true')
-!["weather_page"]('https://github.com/andrewbidylo/social-network/blob/main/docs/weather-page.png?raw=true')
+![chat_page"](https://github.com/andrewbidylo/social-network/blob/main/docs/chat-page.png?raw=true)
+!["weather_page"](https://github.com/andrewbidylo/social-network/blob/main/docs/weather-page.png?raw=true)
 
 ## Dependencies
 
