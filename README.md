@@ -3,6 +3,7 @@
 Social Network is a large single-page app, build with TypeScript, JavaScript, React(class and functional components), Redux, HTML, CSS3, SASS, AJAX, Material-UI and Jest for testing.
 
 
+
 ## Final Product
 
 !["main_page"](https://github.com/andrewbidylo/social-network/blob/main/docs/main-page.png?raw=true)
