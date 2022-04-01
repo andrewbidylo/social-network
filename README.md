@@ -1,6 +1,6 @@
 # Social Network Project
 
-Social Network is a large single-page app, build with TypeScript, JavaScript, React, Redux, HTML, CSS3, SASS, AJAX, Material-UI and Jest for testing.
+Social Network is a large single-page app, build with TypeScript, JavaScript, React(class and functional components), Redux, HTML, CSS3, SASS, AJAX, Material-UI and Jest for testing.
 
 
 ## Final Product
